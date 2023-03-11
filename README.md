@@ -1,1 +1,3 @@
-# Study_CodingTest
+# 코딩 테스트 준비
+
+### 백준사이트, DOit 책, 프로그래머스
