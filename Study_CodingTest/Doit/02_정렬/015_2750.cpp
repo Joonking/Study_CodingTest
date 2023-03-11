@@ -1,4 +1,4 @@
-//015A_2750 수 정렬하기 1(버블정렬)
+//015_2750 수 정렬하기 1(버블정렬)
 
 #include <iostream>
 #include <vector>
