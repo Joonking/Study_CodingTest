@@ -4,4 +4,7 @@
     <Text Include="input.txt" />
     <Text Include="output.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BaekJoon\알고리즘분류\그래프탐색\0000_문제이름.cpp" />
+  </ItemGroup>
 </Project>
