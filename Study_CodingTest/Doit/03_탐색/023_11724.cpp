@@ -4,19 +4,18 @@
 #include <vector>
 using namespace std;
 
-void DFS(vector<vector<int>> &list, vector<bool> &visited, int v)
+void DFS(vector<vector<int>> &list, vector<bool> &visited, int num)
 {
-    if (visited[v])
+    if (visited[num])
         return;
-
-    visited[v] = true;
-
-    for (int i : list[v])
+    visited[num] = true;
+    for (int i : list[num])
     {
         if (!visited[i])
             DFS(list, visited, i);
     }
 }
+
 
 int main()
 {
@@ -27,29 +26,30 @@ int main()
     int N, M;
     cin >> N >> M;
     
-    vector<vector<int>> List(N+1);
-    vector<bool> Visited(N+1,false);
+    vector<vector<int>> GraphList(N + 1);
+    vector<bool> Visited(N + 1, false);
 
-    for (int i = 0; i < M; i++)
+    for (int i = 1; i <= M; i++)
     {
         int tempA, tempB;
         cin >> tempA >> tempB;
-
-        List[tempA].push_back(tempB);
-        List[tempB].push_back(tempA);
+        GraphList[tempA].push_back(tempB);
+        GraphList[tempB].push_back(tempA);
     }
 
     int count = 0;
-    for (int i = 1; i < N+1; i++)
+    for (int i = 1; i <= N; i++)
     {
         if (!Visited[i])
         {
+            DFS(GraphList, Visited, i);
             count++;
-            DFS(List, Visited, i);
         }
+            
     }
-
+    
     cout << count;
+
 }
 
 
