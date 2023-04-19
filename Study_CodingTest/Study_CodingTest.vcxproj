@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="..\로그.txt" />
     <Text Include="input.txt" />
     <Text Include="output.txt" />
   </ItemGroup>
