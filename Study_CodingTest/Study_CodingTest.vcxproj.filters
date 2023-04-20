@@ -5,4 +5,7 @@
     <Text Include="output.txt" />
     <Text Include="..\로그.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Test.cpp" />
+  </ItemGroup>
 </Project>
