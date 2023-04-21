@@ -1,8 +1,6 @@
 //070_1991 트리 순회하기
 
 #include <iostream>
-#include <vector>
-#include <queue>
 using namespace std;
 
 static int n;
@@ -19,21 +17,28 @@ int main()
 
     cin >> n;
 
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
         char node_char, left, right;
         cin >> node_char >> left >> right;
-
         int node = node_char - 'A';
 
         if (left == '.')
+        {
             tree[node][0] = -1;
+        }
         else
+        {
             tree[node][0] = left - 'A';
+        }
         if (right == '.')
+        {
             tree[node][1] = -1;
+        }
         else
+        {
             tree[node][1] = right - 'A';
+        }
     }
 
     preOrder(0);
@@ -58,16 +63,16 @@ void inOrder(int now)
 {
     if (now == -1)
         return;
-    inOrder(tree[now][0]);       // 1.왼쪽 탐색
-    cout << (char)(now + 'A'); // 2.현재 노드
-    inOrder(tree[now][1]);       // 3.오른쪽 탐색
+    inOrder(tree[now][0]);
+    cout << (char)(now + 'A');
+    inOrder(tree[now][1]);
 }
 
 void postOrder(int now)
 {
     if (now == -1)
         return;
-    postOrder(tree[now][0]);    // 1.왼쪽 탐색
-    postOrder(tree[now][1]);    // 2.오른쪽 탐색
-    cout << (char)(now + 'A');  // 3.현재 노드
+    postOrder(tree[now][0]);
+    postOrder(tree[now][1]);
+    cout << (char)(now + 'A');
 }

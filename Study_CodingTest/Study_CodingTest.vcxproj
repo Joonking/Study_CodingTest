@@ -132,7 +132,7 @@
     <Text Include="output.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="Doit\07_트리\071_2042.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

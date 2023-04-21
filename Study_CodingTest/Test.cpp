@@ -4,12 +4,6 @@
 #include <queue>
 using namespace std;
 
-static vector<vector<int>> tree;
-static vector<bool> visited;
-static int answer = 0;
-static int deleteNode = 0;
-
-void DFS(int num);
 
 int main()
 {
@@ -21,55 +15,9 @@ int main()
 	int N;
 	cin >> N;
 
-	tree.resize(N);
-	visited.resize(N);
-
-	int root = 0;
-
-	for(int i=0; i<N;i++)
-	{
-		int p;
-		cin >> p;
-
-		if(p==-1)
-		{
-			root = i;
-		}
-		else
-		{
-			tree[i].push_back(p);
-			tree[p].push_back(i);
-		}
-	}
-
-	cin >> deleteNode;
-
-	if (deleteNode == root)
-		cout << 0;
-	else
-	{
-		DFS(root);
-		cout << answer;
-	}
+	cout << N;
 }
 
-void DFS(int num)
-{
-	visited[num] = true;
-
-	int cNode = 0;
-
-	for(int i : tree[num])
-	{
-		if (!visited[i] && deleteNode != i)
-		{
-			cNode++;
-			DFS(i);
-		}
-	}
-	if (cNode == 0)
-		answer++;
-}
 
 
 
