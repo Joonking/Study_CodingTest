@@ -6,6 +6,6 @@
     <Text Include="..\로그.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="BaekJoon\알고리즘분류\깊이우선탐색\10026_적록색약.cpp" />
   </ItemGroup>
 </Project>
