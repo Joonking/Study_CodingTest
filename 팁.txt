@@ -1,0 +1,81 @@
+
+*** 자주 까먹는거 or 새로운 팁들 정리 ***
+
+cin, cout 빠르게
+
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+
+배열 특정 값으로 채우기 fill
+
+	전체 초기화 : 처음에는 [0][0]을 써주고, 그 다음 칸에는 [최대 행(값) - 1][최대 열], 다음 칸에는 초기 상태의 값
+	ex>	fill(&map[0][0], &map[MAX - 1][MAX], 0);  
+	ex> 	fill(&visited[0][0], &visited[MAX - 1][MAX], false);
+	
+
+
+큐 만들고, pair 만들어 넣기
+
+	queue<pair<int, int>> Queue;
+	Queue.push(make_pair(x, y));
+	pair<int, int> now = Queue.front();
+	Queue.pop();
+	int nowX = now.first;
+	int nowY = now.second;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
