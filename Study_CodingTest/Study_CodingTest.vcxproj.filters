@@ -6,7 +6,4 @@
     <Text Include="..\로그.txt" />
     <Text Include="..\팁.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="BaekJoon\알고리즘분류\너비우선탐색\4963_섬의개수.cpp" />
-  </ItemGroup>
 </Project>
