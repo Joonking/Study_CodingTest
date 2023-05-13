@@ -1,4 +1,0 @@
-	//cin, cout 시간단축
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
