@@ -6,4 +6,7 @@
     <Text Include="..\로그.txt" />
     <Text Include="..\팁.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BaekJoon\CLASS분류\CLASS_2\9012_괄호.cpp" />
+  </ItemGroup>
 </Project>
