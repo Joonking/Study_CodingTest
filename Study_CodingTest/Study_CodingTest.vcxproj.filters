@@ -6,7 +6,4 @@
     <Text Include="..\로그.txt" />
     <Text Include="..\팁.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Test.cpp" />
-  </ItemGroup>
 </Project>
