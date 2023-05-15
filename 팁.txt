@@ -94,6 +94,12 @@ string -> int, unint, long, float, double, long double
 	다시 r을 r0로 나눈 나머지를 구하는 과정을 반복하여 나머지가 0이 되었을 때 
 	나누는 수가 a와 b의 최대공약수이다.
 
+	int gcd(int a, int b)			<- 최대 공약수 구하는 함수
+	{
+		if(a%b==0)return b;
+		return gcd(b, a%b);
+	}
+
 
 Hash Table
 	- 해쉬는 전화번호부와 같음.
@@ -127,7 +133,16 @@ Hash Table
 		찾는 값이 없다면 name.end() 리턴
 
 
+	
+	sort 
+		sort(arr.begin(), arr.end());		<- 기본 오름차순
+		sort(arr.begin(), arr.end(), greater<자료형>());		<- 내림차순
+		sort(arr.begin(), arr.end(), compare)		<- 사용자 정의 함수
 
+		bool compare(int a, int b)			<- 사용자 정의 함수
+		{
+			return a > b;
+		}
 
 
 
