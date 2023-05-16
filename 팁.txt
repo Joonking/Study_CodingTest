@@ -146,9 +146,20 @@ Hash Table
 
 
 
+	이분탐색(이진탐색) - 술게임 업다운 게임
+		이진탐색은 데이터가 정렬된 상태에서 원하는 값을 찾아내는 알고리즘임.
+		찾고자 하는 값과 중앙값을 비교해서 탐색하는 범위를 절반씩 줄이면서 찾는 방식임.
+		left				mid				right
 
+		찾으려는 값 : 18
+		left : 1					mid : 25						right : 50			-> 18 < 25 => right = mid -1
 
+		left : 1					mid : 12						right : 24			-> 18 > 12 => left = mid +1
 
+		left : 13					mid :	18						right :	24			-> 18 찾았당.
+
+		만약 찾는 값이 없으면 break는 left > right 일때로 해주면 됨.
+		while(left <= right) 로 설정하고 이진탐색
 
 
 
