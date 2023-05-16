@@ -3,14 +3,15 @@
 
 using namespace std;
 
-int solution(int n) {
+int solution(int n, int t) {
     int answer = 0;
 
-    while (n > 0)
+    for (int i = 0; i < t; i++)
     {
-        answer += n % 10;
-        n /= 10;
+        n *= 2;
     }
+
+    answer = n;
 
     return answer;
 }
