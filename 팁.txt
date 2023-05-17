@@ -119,7 +119,13 @@ Hash Table
 		}
 
 
+vector 원소 찾기 (인덱스 찾기)
+	find(v.begin(), v.end(), 찾을 대상)
+		리턴값이 v.end() 인경우 -> 해당 원소가 존재하지 않는것
+		리턴값이 v.end()가 아닌 경우 -> 해당 원소가 존재하는 것
 
+	find(v.begin(), v.end(), 찾을대상) - v.end()
+		vector 내에서 해당 원소가 위치하는 인덱스 찾기
 
 
 
