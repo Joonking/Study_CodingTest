@@ -7,7 +7,4 @@
     <Text Include="..\팁.txt" />
     <Text Include="..\문자열 정리.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Programmers\코딩테스트입문\삼각형의완성조건.cpp" />
-  </ItemGroup>
 </Project>
