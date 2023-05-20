@@ -119,7 +119,7 @@ Hash Table
 		}
 
 
-vector 원소 찾기 (인덱스 찾기)
+vector 원소 찾기 (인덱스 찾기)   - algorithm 인클루드 필요
 	find(v.begin(), v.end(), 찾을 대상)
 		리턴값이 v.end() 인경우 -> 해당 원소가 존재하지 않는것
 		리턴값이 v.end()가 아닌 경우 -> 해당 원소가 존재하는 것
@@ -129,9 +129,17 @@ vector 원소 찾기 (인덱스 찾기)
 
 
 
+vector 중복되는 항목 제거하기
 
+	우선 sort 하고
+		sort(answer.begin(),answer.end());
+	unique 하면 중복되는 항목은 벡터의 뒤에 추가됨. 이것 까지 없애려면 erase 함수를 쓰면됨.
+		answer.erase(unique(answer.begin(),answer.end()),answer.end());
 
+	erase 함수는 특정 인덱스를 지우는 함수임.
+		v.erase(v.begin() + i);   이렇게 하면 v의 i번째 인덱스의 원소를 삭제함.
 
+		v[5]를 지우고 싶다면 v.erase(v.begin() + 5);
 
 
 

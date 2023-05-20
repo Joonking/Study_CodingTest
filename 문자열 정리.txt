@@ -47,6 +47,8 @@ string -> int, unint, long, float, double, long double
 	stof			float
 	stod			double
 	stold			long double
+	stoll			string을 long long으로 변환 stoll(str);
+	stol			string을 long으로 변환 stol(str);
 
 
 string 유용한 멤버 함수
