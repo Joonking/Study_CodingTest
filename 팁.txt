@@ -142,7 +142,8 @@ vector 중복되는 항목 제거하기
 		v[5]를 지우고 싶다면 v.erase(v.begin() + 5);
 
 
-
+vector 초기화
+	fill(visited.begin(), visited.end(), false); 
 
 
 
