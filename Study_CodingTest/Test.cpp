@@ -1,58 +1,22 @@
 #include <iostream>
-#include <string>
-#include <vector>
-#include <queue>
-#include <stack>
-#include <algorithm>
-#include <map>
-#include <unordered_map>
-
 using namespace std;
-
-int N, M, V;
-static vector<vector<int>> arr;
-static vector<bool> visited;
-
-
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+	float e = 0.0f;
+	float a = 0.0f / e, b = 0.0f / e, c = 1.0f / e, d = 1.0f / e;
 
-    
+	if (a == b)
+		cout << "a == b" << endl;
+	else
+		cout << "a != b" << endl;
 
-    
+	if (c == d)
+		cout << "c == d" << endl;
+	else
+		cout << "c != d" << endl;
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
