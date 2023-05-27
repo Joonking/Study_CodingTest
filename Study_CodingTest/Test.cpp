@@ -1,24 +1,16 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
+int main() {
 
-int main()
-{
-	float e = 0.0f;
-	float a = 0.0f / e, b = 0.0f / e, c = 1.0f / e, d = 1.0f / e;
+	string N, M;
+	cin >> N >> M;
 
-	if (a == b)
-		cout << "a == b" << endl;
-	else
-		cout << "a != b" << endl;
+	int a = stoi(N, nullptr, 16);
+	int b = stoi(M, nullptr, 16);
 
-	if (c == d)
-		cout << "c == d" << endl;
-	else
-		cout << "c != d" << endl;
+	int sum = a + b;
 
+	cout << hex << sum;
 }
-
-
-
-
-
