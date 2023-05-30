@@ -127,8 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="..\다시풀문제.txt" />
     <Text Include="..\로그.txt" />
-    <Text Include="..\문자열 정리.txt" />
     <Text Include="..\팁.txt" />
     <Text Include="input.txt" />
     <Text Include="output.txt" />
