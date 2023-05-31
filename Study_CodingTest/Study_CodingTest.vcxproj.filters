@@ -7,7 +7,4 @@
     <Text Include="..\팁.txt" />
     <Text Include="..\다시풀문제.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="BaekJoon\알고리즘분류\자료구조\11286_절댓값힙.cpp" />
-  </ItemGroup>
 </Project>
