@@ -5,6 +5,18 @@ using namespace std;
 
 int N, x;
 
+struct cmp
+{
+	bool operator()(int a, int b)
+	{
+		if (abs(a) == abs(b))
+			return a > b;
+		else
+			return abs(a) > abs(b);
+	}
+};
+
+
 int main()
 {
 	ios::sync_with_stdio(false);
@@ -13,7 +25,7 @@ int main()
 
 	cin >> N;
 
-	priority_queue<int, vector<int>, greater<int>> P_Queue;
+	priority_queue<int, vector<int>, cmp> P_Queue;
 
 	for (int i = 0; i < N; i++)
 	{

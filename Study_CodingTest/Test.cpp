@@ -1,16 +1,38 @@
 #include <iostream>
-#include <string>
+#include <queue>
 
 using namespace std;
-int main() {
 
-	string N, M;
-	cin >> N >> M;
+int N, M;
+int pan[1000][1000];
 
-	int a = stoi(N, nullptr, 16);
-	int b = stoi(M, nullptr, 16);
+int main() 
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 
-	int sum = a + b;
+	cin >> M >> N;
 
-	cout << hex << sum;
+	for (int i = 0; i < N; i++)
+	{
+		for (int k = 0; k < M; k++)
+		{
+			cin >> pan[i][k];
+		}
+	}
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+

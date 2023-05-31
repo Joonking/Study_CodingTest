@@ -3,29 +3,25 @@
 
 using namespace std;
 
-int N;
-
-priority_queue<int, vector<int>, greater<int>> P_Queue;
+int N, x;
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
+	ios::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
 
 	cin >> N;
 
+	priority_queue<int, vector<int>, greater<int>> P_Queue;
+
 	for (int i = 0; i < N; i++)
 	{
-		int temp;
-		cin >> temp;
-
-		if (temp == 0)
+		cin >> x;
+		if (x == 0)
 		{
 			if (P_Queue.empty())
-			{
 				cout << 0 << "\n";
-			}
 			else
 			{
 				cout << P_Queue.top() << "\n";
@@ -34,9 +30,16 @@ int main()
 		}
 		else
 		{
-			P_Queue.push(temp);
+			P_Queue.push(x);
 		}
 	}
 
-
 }
+
+
+
+
+
+
+
+
