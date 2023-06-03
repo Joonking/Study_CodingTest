@@ -10,6 +10,7 @@ long long fibo(int N)
         fiboarr[N] = fibo(N - 1) + fibo(N - 2);
     return fiboarr[N];
 }
+
 int main() {
     int T;
     cin >> T;

@@ -6,8 +6,6 @@
 
 using namespace std;
 
-
-vector<int> dp;
 vector<bool> mal(10, false);
 
 bool check(int now) {
@@ -24,8 +22,6 @@ bool check(int now) {
 
 }
 
-
-
 int main() {
 
     int n, c;
@@ -38,9 +34,6 @@ int main() {
         mal[tmp] = true;
     }
 
-
-    string st = to_string(n);
-
     int minimum = abs(n - 100);
     for (int i = 0; i <= 1000000; i++) {
         if (check(i)) {
@@ -50,9 +43,7 @@ int main() {
 
     }
 
-
     cout << minimum << endl;
-
 
     return 0;
 }
