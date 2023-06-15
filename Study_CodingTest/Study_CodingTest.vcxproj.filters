@@ -7,7 +7,4 @@
     <Text Include="..\팁.txt" />
     <Text Include="..\다시풀문제.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="BaekJoon\단계별로풀어보기\10_기하.직사각형과삼각형\5073_삼각형과세변.cpp" />
-  </ItemGroup>
 </Project>

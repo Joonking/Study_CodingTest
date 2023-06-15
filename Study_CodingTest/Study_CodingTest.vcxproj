@@ -133,9 +133,6 @@
     <Text Include="input.txt" />
     <Text Include="output.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="BaekJoon\단계별로풀어보기\10_기하.직사각형과삼각형\5073_삼각형과세변.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
