@@ -7,7 +7,4 @@
     <Text Include="..\팁.txt" />
     <Text Include="..\다시풀문제.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="BaekJoon\Doit책분류\03_탐색\028_1167_트리의지름.cpp" />
-  </ItemGroup>
 </Project>
