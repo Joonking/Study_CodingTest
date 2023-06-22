@@ -14,11 +14,16 @@ void BFS(int index) {
     myqueue.push(index);
     visited[index] = true;
 
-    while (!myqueue.empty()) {
+    while (!myqueue.empty()) 
+    {
         int now_node = myqueue.front();
+        
         myqueue.pop();
-        for (edge i : A[now_node]) {
-            if (!visited[i.first]) {
+        
+        for (edge i : A[now_node])
+        {
+            if (!visited[i.first]) 
+            {
                 visited[i.first] = true;
                 myqueue.push(i.first);
                 m_distance[i.first] = m_distance[now_node] + i.second;
@@ -51,17 +56,26 @@ int main()
     }
 
     m_distance = vector<int>(N + 1, 0);
+
     visited = vector<bool>(N + 1, false);
+
     BFS(1);
+
     int Max = 1;
+
     for (int i = 2; i <= N; i++) {
         if (m_distance[Max] < m_distance[i])
             Max = i;
     }
-    fill(m_distance.begin(), m_distance.end(), 0); // 거리 배열 초기화
-    fill(visited.begin(), visited.end(), false); // 방문 배열 초기화
+
+    fill(m_distance.begin(), m_distance.end(), 0); 
+    
+    fill(visited.begin(), visited.end(), false); 
+    
     BFS(Max);
+    
     sort(m_distance.begin(), m_distance.end());
+    
     cout << m_distance[N] << "\n";
 }
 
