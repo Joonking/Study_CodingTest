@@ -331,7 +331,12 @@ string 유용한 멤버 함수
 	tolower(c)					c 문자를 소문자로 변환
 
 
-
+int isdigit(int c)		숫자 판단 함수
+	매개변수로 들어가는 c는 char 타입이 아닌 int 타입임.
+	이거는 char 타입이 아스키코드 번호로 들어갈 수 있기때문임.
+	ex > string str = "B123456DMask";
+		    - isdigit(str[0]) => 'B' => 0이 나옴
+		    - isdigit(str[1]) => '1' => 0이 아닌 수가 나옴
 
 
 
