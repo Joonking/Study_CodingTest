@@ -75,7 +75,12 @@ vector 초기화
 		}
 
 
+vector에서 최고 값, 최고 값의 인덱스 찾기 (algorithm 에 있음)
+	int MAX = *max_element(v.begin(), v.end());							//최고값
+	int MAX_INDEX = max_element(v.begin(), v.end()) - v.begin();		//최고값의 인덱스
 
+	int MIN = *min_element(v.begin(), v.end());								//최소값
+	int MIN_INDEX = min_element(v.begin(), v.end()) - v.begin();		//최소값의 인덱스
 
 
 
