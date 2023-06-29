@@ -9,78 +9,40 @@
 #include <string>
 using namespace std;
 
-int N, M, V;
 
-vector<vector<int>> Nodes;
-vector<bool> visited;
+std::string getString(std::string input_str) {
+    int n = input_str.length();
+    std::unordered_map<char, int> count;
+    std::string result;
 
+    // Count the occurrences of each character
+    for (int i = 0; i < n; i++) {
+        count[input_str[i]]++;
+    }
 
-void DFS(int n)
-{
-	visited[n] = true;
-	cout << n << " ";
-	for (int i : Nodes[n])
-	{
-		if (visited[i] == false)
-			DFS(i);
-	}
+    // Iterate through the characters in order
+    for (int i = 0; i < n; i++) {
+        char ch = input_str[i];
+
+        // Append the character to the result if it occurs more than once
+        if (count[ch] > 1) {
+            result.push_back(ch);
+            count[ch] = 0;  // Mark the occurrence as deleted
+        }
+    }
+
+    return result;
 }
 
-void BFS(int n)
-{
-	queue<int> Queue;
-	visited[n] = true;
-	Queue.push(n);
-	
-	while (Queue.empty() == false)
-	{
-		int now = Queue.front();
-		Queue.pop();
-		cout << now << " ";
-		for (int i : Nodes[now])
-		{
-			if (visited[i] == false)
-			{
-				visited[i] = true;
-				Queue.push(i);
-			}
-		}
-	}
+int main() {
+    std::string input_str;
+    std::cin >> input_str;
 
+    std::string result = getString(input_str);
+    std::cout << result << std::endl;
+
+    return 0;
 }
-
-int main() 
-{
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
-	
-	cin >> N >> M >> V;
-
-	Nodes.resize(N + 1);
-	visited.resize(N + 1);
-
-	for (int i = 0; i < M; i++)
-	{
-		int a, b;
-		cin >> a >> b;
-		Nodes[a].push_back(b);
-		Nodes[b].push_back(a);
-	}
-
-	for (int i = 1; i <= N; i++)
-	{
-		sort(Nodes[i].begin(), Nodes[i].end());
-	}
-
-	DFS(V);
-	fill(visited.begin(), visited.end(), false);
-	cout << endl;
-	BFS(V);
-	
-}
-
-
 
 
 
