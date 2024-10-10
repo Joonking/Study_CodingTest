@@ -1,32 +1,25 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
-
 	int A, B, C;
 	cin >> A >> B >> C;
 
-	long long sum = A * B * C;
-	string an = to_string(sum);
+	long long Sum = A * B * C;
+	string StringSum = to_string(Sum);
 
-	int answer[10] = { 0 };
+	int NumArray[10] = { 0 };
 
-	for (char a : an)
+	for (char C : StringSum)
 	{
-		answer[a - '0']++;
+		NumArray[C - '0']++;
 	}
 
-	for (int i = 0;i<=9;i++)
+	for (int i : NumArray)
 	{
-		cout << answer[i] << endl;
+		cout << i << endl;
 	}
 }
-
-
-
-

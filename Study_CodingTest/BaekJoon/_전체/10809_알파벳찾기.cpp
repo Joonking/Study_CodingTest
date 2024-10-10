@@ -1,29 +1,29 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
-int main()
-{
-	string Str;
-	cin >> Str;
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
 
-	int A[26], Count = 0;
-	fill_n(A, 26, -1);
+	string S;
+	cin >> S;
 
-	for (int i = 0; i < 26; i++)
+	int Alpabet[26];
+	fill(Alpabet, Alpabet + 26, -1);
+
+	for (int i = 0; i < S.size(); i++)
 	{
-		for (char c : Str)
-		{
-			if ((int)c == (97 + i))
-			{
-				A[i] = Count;
-				break;
-			}
-			Count++;
-		}
-		Count = 0;
+		if (Alpabet[S[i] - 'a'] == -1)
+			Alpabet[S[i] - 'a'] = i;
 	}
 
-	for (int i = 0; i < 26; i++)
-		cout << A[i] << " ";
+	for (int i : Alpabet)
+	{
+		cout << i << " ";
+	}
+
+	return 0;
 }

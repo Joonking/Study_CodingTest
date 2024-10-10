@@ -1,18 +1,24 @@
 #include <iostream>
 using namespace std;
-int main()
+
+int main() 
 {
 	ios::sync_with_stdio(false);
-	cin.tie(0);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
 
-	int N, Min = INT_MAX, Max = INT_MIN, t;
+	int N;
 	cin >> N;
-	
+	int Min = 1000001, Max = -1000001;
 	for (int i = 0; i < N; i++)
 	{
-		cin >> t;
-		if (t < Min) Min = t;
-		if (t > Max) 	Max = t;
+		int temp;
+		cin >> temp;
+		if (temp < Min) Min = temp;
+		if (temp > Max) Max = temp;
+
 	}
 	cout << Min << " " << Max;
+
+	return 0;
 }

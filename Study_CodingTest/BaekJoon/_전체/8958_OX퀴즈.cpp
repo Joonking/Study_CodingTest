@@ -1,29 +1,36 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
-int main()
-{
-	int N, Score=0, SumScore=0;
-	cin >> N;
-	string ch;
 
-	for (int i = 0; i < N; i++)
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int TestCaseNum;
+	cin >> TestCaseNum;
+
+	for (int i = 0; i < TestCaseNum; i++)
 	{
-		cin >> ch;
+		string TestCase;
+		cin >> TestCase;
 
-		for (int j=0; j<ch.length(); j++)
+		int Combo = 0, Score = 0;
+		for (char C : TestCase)
 		{
-			for (int k = 0; k <= j; k++)
+			if (C == 'O')
 			{
-				if (ch[k] == 'O')
-					Score++;
-				else
-					Score = 0;
+				Combo++;
 			}
-			SumScore += Score;
-			Score = 0;
+			else if (C == 'X')
+			{
+				Combo = 0;
+			}
+			Score += Combo;
 		}
-		cout << SumScore << endl;
-		SumScore = 0;
+		cout << Score << endl;
 	}
+
+	return 0;
 }
