@@ -1,40 +1,27 @@
-
-#include <queue>
-#include <bitset>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <algorithm>
-#include <cmath>
-
-#include <string>
-
 #include <iostream>
+#include <algorithm>
+
 using namespace std;
 
-int main() {
+int main()
+{
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr);
 	cout.tie(nullptr);
 
-	int N;
-	cin >> N;
-	int Min = 1000001, Max = -1000001;
-	for (int i = 0; i < N; i++)
+	while (true)
 	{
-		int temp;
-		cin >> temp;
-		if (temp < Min) Min = temp;
-		if (temp > Max) Max = temp;
-
+		string StrTemp, StrReverse;
+		cin >> StrTemp;
+		if (StrTemp == "0")
+			break;
+		StrReverse = StrTemp;
+		reverse(StrReverse.begin(), StrReverse.end());
+		if (StrTemp == StrReverse)
+			cout << "yes" << endl;
+		else
+			cout << "no" << endl;
 	}
-	cout << Min << " " << Max;
 
 	return 0;
-}
-
-
-
-
-
-
+} 
