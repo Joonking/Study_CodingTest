@@ -1,26 +1,27 @@
 #include <iostream>
-#include <string>
-#include <algorithm> //reverse 함수가 있는 헤더파일
+#include <algorithm>
 
 using namespace std;
 
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
 
-int main() {
-    string N;
+	while (true)
+	{
+		string StrTemp, StrReverse;
+		cin >> StrTemp;
+		if (StrTemp == "0")
+			break;
+		StrReverse = StrTemp;
+		reverse(StrReverse.begin(), StrReverse.end());
+		if (StrTemp == StrReverse)
+			cout << "yes" << endl;
+		else
+			cout << "no" << endl;
+	}
 
-    //0이 아니면 무한 반복
-    while (N != "0") {
-        cin >> N;
-        string buf = N;
-        reverse(N.begin(), N.end()); // 앞 뒤 바꿈
-        if (N == "0") { // 즉시 탈출 (왜냐하면 0도 reverse하면 0으로 같다.)
-            break;
-        }
-        else if (N == buf) { // 비교
-            cout << "yes\n";
-        }
-        else {
-            cout << "no\n";
-        }
-    }
+	return 0;
 }

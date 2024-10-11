@@ -1,50 +1,58 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
 
-    int N, M;
-    cin >> N;
-    vector<int> A(N);
-    for (int i = 0; i < N; i++) {
-        cin >> A[i];
-    }
+	int N;
+	cin >> N;
+	vector<int> NumVector(N);
+	for (int i = 0; i < N; i++)
+	{
+		cin >> NumVector[i];
+	}
 
-    sort(A.begin(), A.end()); //A배열 정렬 O(nlogn)시간 복잡도
+	sort(NumVector.begin(), NumVector.end());
 
-    cin >> M;
-    for (int i = 0; i < M; i++) {
-        bool find = false;
-        int target;
-        cin >> target;
-        // 이진 탐색 시작
-        int start = 0;
-        int end = A.size() - 1;
-        while (start <= end) {
-            int midi = (start + end) / 2;
-            int midV = A[midi];
-            if (midV > target) {
-                end = midi - 1;
-            }
-            else if (midV < target) {
-                start = midi + 1;
-            }
-            else {
-                find = true;
-                break;
-            }
-        }
-        if (find) {
-            cout << 1 << "\n";
-        }
-        else {
-            cout << 0 << "\n";
-        }
-    }
+	int M;
+	cin >> M;
+	for (int i = 0; i < M; i++)
+	{
+		int Target;
+		cin >> Target;
+		bool Find = false;
+
+		int StartIndex = 0, EndIndex = NumVector.size() - 1;
+		while (StartIndex <= EndIndex)
+		{
+			int MidIndex = (StartIndex + EndIndex) / 2;
+			if (Target < NumVector[MidIndex])
+			{
+				EndIndex = MidIndex - 1;
+			}
+			else if (Target > NumVector[MidIndex])
+			{
+				StartIndex = MidIndex + 1;
+			}
+			else
+			{
+				Find = true;
+				break;
+			}
+		}
+
+		if (Find)
+			cout << 1 << "\n";
+		else
+			cout << 0 << "\n";
+
+	}
+
+	return 0;
 }
