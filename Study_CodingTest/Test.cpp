@@ -1,4 +1,8 @@
 #include <iostream>
+#include <queue>
+#include <stack>
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -8,9 +12,7 @@ int main()
 	cin.tie(nullptr);
 	cout.tie(nullptr);
 
-	int M, N;
-	cin >> M >> N;
-
+	
 
 
 

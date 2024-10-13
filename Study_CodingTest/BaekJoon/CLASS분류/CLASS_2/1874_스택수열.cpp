@@ -33,7 +33,7 @@ int main()
         }
 
         // 스택의 top이 목표 숫자와 같으면 pop
-        if (IntStack.empty() == false && IntStack.top() == Target)
+        if (IntStack.top() == Target)
         {
             IntStack.pop();  // 스택에서 pop
             Operations.push_back('-');   // pop 연산 기록
