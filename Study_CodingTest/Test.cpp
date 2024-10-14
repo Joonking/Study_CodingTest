@@ -1,20 +1,17 @@
 #include <iostream>
-#include <queue>
-#include <stack>
 #include <vector>
-#include <string>
-
+#include <queue>
+#include <algorithm>
 using namespace std;
+
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
-	cout.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
-	
+    
 
-
-
-	return 0;
+    return 0;
 }
