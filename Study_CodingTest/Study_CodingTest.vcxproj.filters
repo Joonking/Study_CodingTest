@@ -7,7 +7,4 @@
     <Text Include="..\팁.txt" />
     <Text Include="..\다시풀문제.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Test.cpp" />
-  </ItemGroup>
 </Project>
