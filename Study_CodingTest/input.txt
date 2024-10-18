@@ -1,8 +1,5 @@
-7
-ENTER
-pjshwa
-chansol
-chogahui05
-ENTER
-pjshwa
-chansol
+4
+Baha enter
+Askar enter
+Baha leave
+Artem enter
