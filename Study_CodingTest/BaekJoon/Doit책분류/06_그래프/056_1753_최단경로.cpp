@@ -1,73 +1,80 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 #include <queue>
-#include <limits.h>
-using namespace std;
 
+using namespace std;
 
 int main()
 {
     ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
-    //V: 노드 개수, E: 에지 개수, K:출발 노드
+    //V : 정점의 개수, E : 간선의 개수, K : 시작 지점
     int V, E, K;
     cin >> V >> E >> K;
 
-    typedef pair<int, int> edge;
+    // 인접 리스트 (정점, 가중치)
+    vector<vector<pair<int, int>>> DijkstraList(V + 1);
 
-    //mlist : 그래프 정보 저장 인접 리스트
-    vector<vector<edge>> mlist(V + 1);
-    //mdistance : 최단거리 정보 저장.
-    vector<int> mdistance(V+1, INT_MAX);
-    //visited : 방문 여부
-    vector<bool> visited(V + 1, false);
-
-    // 가중치가 있는 인접 리스트 초기화
-    for(int i=0;i<E;i++)
+    for (int i = 0; i < E; i++)
     {
+        //u : 출발점, v : 도착점, w : 가중치
         int u, v, w;
         cin >> u >> v >> w;
-        mlist[u].push_back({v,w});
+        DijkstraList[u].push_back({ v,w });
     }
 
-    //자동으로 거리가 최소인 노드를 선택하게끔 우선순위 큐를 사용.
-    priority_queue<edge, vector<edge>, greater<edge>> q;
+    // 최단 거리 저장, 처음에는 모든 정점을 무한대로 초기화
+    vector<int> Ans(V + 1, INT_MAX);
+    Ans[K] = 0; // 시작점은 거리 0
 
-	//큐에 첫번째 출발 노드를 넣어줌.
-    q.push({0,K});
-    //K번째 최단거리 0으로 만들기
-    mdistance[K] = 0;
+    // 우선순위 큐 사용 (최소 힙) -> (거리, 정점)
+    priority_queue < pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> PQ;
+    PQ.push({ 0, K }); //시작점 K는 거리 0으로 일단 넣기
 
-    while (!q.empty()) {
-        edge current = q.top();
-        q.pop();
-        int c_v = current.second;
-        if (visited[c_v]) continue; // 기 방문 노드는 다시 큐에 넣지 않습니다.
-        visited[c_v] = true;
-        for (int i = 0; i < mlist[c_v].size(); i++) {
-            edge tmp = mlist[c_v][i];
-            int next = tmp.first;
-            int value = tmp.second;
-            if (mdistance[next] > mdistance[c_v] + value) { // 최소 거리로 업데이트
-                mdistance[next] = value + mdistance[c_v];
-                q.push(make_pair(mdistance[next], next));
+    while (PQ.empty() == false)
+    {
+        //현재 노드까지의 거리
+        int NowDistance = PQ.top().first;
+        //현재 노드
+        int NowNode = PQ.top().second;
+        PQ.pop();
+
+        // 현재 노드에서 이미 계산된 최단 거리가 더 작다면 무시
+        if (NowDistance > Ans[NowNode])
+            continue;
+
+        //리스트에서 현재 노드에 붙어있는 노드들을 돌아
+        for (const auto& a : DijkstraList[NowNode])
+        {
+            //다음 노드
+            int NextNode = a.first;
+            //다음 노드의 가중치
+            int NextDistance = a.second;
+
+            // 다음 노드 가는 경로가 이미 정해져 있을때 (없으면 무한대)
+            // 그 값보다 현재 노드까지 경로에다가 
+            // 현재 노드와 다음노드의 가중치(weight)를 더한 값이
+            // 더 작다면 그 값으로 변경
+            if (Ans[NextNode] > Ans[NowNode] + NextDistance)
+            {
+                Ans[NextNode] = Ans[NowNode] + NextDistance;
+                PQ.push({ Ans[NextNode], NextNode });
             }
         }
     }
 
-    for (int i = 1; i <= V; i++) { // 거리 배열 출력
-        if (visited[i])
-            cout << mdistance[i] << "\n";
-        else
-            cout << "INF" << "\n";
+    // 결과 출력
+    for (int i = 1; i <= V; i++) {
+        if (Ans[i] == INT_MAX) {
+            cout << "INF\n";
+        }
+        else {
+            cout << Ans[i] << "\n";
+        }
     }
 
+    return 0;
 }
-
-
-
-
-
-
