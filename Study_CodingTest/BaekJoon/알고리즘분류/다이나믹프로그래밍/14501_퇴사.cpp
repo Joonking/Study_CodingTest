@@ -12,42 +12,45 @@
 
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 using namespace std;
 
-static int N;
-static vector<int> D, Ti, Pi;
+//D[i] : i번째 일 부터 N일까지 벌 수 있는 최대 값
+vector<int> D;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
-	cin >> N;
+    int N;
+    cin >> N;
+    D.resize(N + 2);
 
-	D.resize(N + 2);
-	Ti.resize(N + 1);
-	Pi.resize(N + 1);
+    vector<int> Ti(N + 1);
+    vector<int> Pi(N + 1);
+    for (int i = 1; i <= N; i++)
+    {
+        cin >> Ti[i] >> Pi[i];
+    }
 
-	for (int i = 1; i <= N; i++)
-	{
-		cin >> Ti[i] >> Pi[i];
-	}
+    D[N + 1] = 0;  // N+1 마지막날은 퇴사날이니 0
 
-	for (int i = N; i > 0; i--)
-	{
-		if (i + Ti[i] > N + 1)    //i번째 상담을 퇴사일까지 끝낼 수 없는 경우
-		{
-			// i : 현재날짜 + Ti[i] : 상담이 걸리는 기간 > N+1 : 퇴사날
-			D[i] = D[i + 1];  
-		}
-		else						//i 번째 상담을 퇴사일까지 끝낼 수 있는 경우
-		{
-			D[i] = max(D[i + 1], D[i + Ti[i]] + Pi[i]);
-		}
-	}
-	cout << D[1];
+    for (int i = N; i > 0; i--)
+    {
+        //남은 날보다 수행날짜가 더 많으면 할 수 없음
+        if ((N + 1 - i) < Ti[i])
+        {
+            D[i] = D[i + 1];
+        }
+        else  //할 수 있으면
+        {
+            D[i] = max(D[i + 1], D[i + Ti[i]] + Pi[i]);
+        }
+    }
 
+    cout << D[1];
+
+    return 0;
 }
