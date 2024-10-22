@@ -7,4 +7,7 @@
     <Text Include="..\팁.txt" />
     <Text Include="..\다시풀문제.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BaekJoon\알고리즘분류\다이나믹프로그래밍\1149_RGB거리.cpp" />
+  </ItemGroup>
 </Project>
