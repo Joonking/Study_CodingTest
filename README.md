@@ -7,3 +7,6 @@
 [![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=kmj73203)](https://solved.ac/kmj73203)
 
 https://solved.ac/profile/kmj73203
+
+### 중요 문제, 꿀팁 정리 ###
+https://jooooon.notion.site/7797e3304e3246528a4a544fb2134bf9?pvs=73
