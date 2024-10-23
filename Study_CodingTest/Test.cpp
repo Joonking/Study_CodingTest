@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <string>
 using namespace std;
 
 int main()
@@ -9,9 +9,18 @@ int main()
 	cin.tie(nullptr);
 	cout.tie(nullptr);
 
-	int N;
-	cin >> N;
+	vector<string> Ans;
+	while (true)
+	{
+		string s;
+		getline(cin, s);
+		if (s.empty())
+			break;
+		Ans.push_back(s.substr(0, 5));
+	}
 
+	for (string s : Ans)
+		cout << s << "\n";
 
 
 	return 0;
