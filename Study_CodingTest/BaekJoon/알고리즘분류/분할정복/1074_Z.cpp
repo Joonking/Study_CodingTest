@@ -14,7 +14,7 @@ void Z(int y, int x, int size)
     }
 
     // r,c가 현재 사분면에 존재한다면
-    if (r < y + size && r >= y && c < x + size && c >= x)
+    if (y<= r && r < y + size && x <=c && c < x + size)
     {
         // 1사분면 탐색
         Z(y, x, size / 2);
