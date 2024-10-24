@@ -13,26 +13,23 @@ vector<string> split(const string&);
  */
 
 void plusMinus(vector<int> arr) {
-    float Positive = 0;
-    float Negative = 0;
-    float Zero = 0;
+    int a = 0, b = 0, c = 0;
 
     for (int i : arr)
     {
         if (i > 0)
-            Positive++;
+            a++;
         else if (i < 0)
-            Negative++;
+            b++;
         else
-            Zero++;
+            c++;
     }
 
-    float Size = arr.size();
-    cout << fixed;
-    cout.precision(6);
-    cout << (Positive / Size) << "\n";
-    cout << (Negative / Size) << "\n";
-    cout << (Zero / Size) << "\n";
+    cout << (float)a / arr.size() << endl;
+    cout << (float)b / arr.size() << endl;
+    cout << (float)c / arr.size() << endl;
+
+
 }
 
 int main()

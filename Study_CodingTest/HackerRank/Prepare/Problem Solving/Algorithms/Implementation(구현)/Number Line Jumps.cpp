@@ -7,36 +7,51 @@ string rtrim(const string&);
 vector<string> split(const string&);
 
 /*
- * Complete the 'miniMaxSum' function below.
+ * Complete the 'kangaroo' function below.
  *
- * The function accepts INTEGER_ARRAY arr as parameter.
+ * The function is expected to return a STRING.
+ * The function accepts following parameters:
+ *  1. INTEGER x1
+ *  2. INTEGER v1
+ *  3. INTEGER x2
+ *  4. INTEGER v2
  */
 
-void miniMaxSum(vector<int> arr) {
-    sort(arr.begin(), arr.end());
-    long long Sum = 0;
-    for (int i : arr)
-        Sum += i;
-    cout << Sum - arr[arr.size() - 1] << " " << Sum - arr[0];
+string kangaroo(int x1, int v1, int x2, int v2) {
+
+    while (x1 < x2)
+    {
+        x1 += v1;
+        x2 += v2;
+
+        if (x1 == x2)
+            return "YES";
+    }
+    return "NO";
 }
 
 int main()
 {
+    ofstream fout(getenv("OUTPUT_PATH"));
 
-    string arr_temp_temp;
-    getline(cin, arr_temp_temp);
+    string first_multiple_input_temp;
+    getline(cin, first_multiple_input_temp);
 
-    vector<string> arr_temp = split(rtrim(arr_temp_temp));
+    vector<string> first_multiple_input = split(rtrim(first_multiple_input_temp));
 
-    vector<int> arr(5);
+    int x1 = stoi(first_multiple_input[0]);
 
-    for (int i = 0; i < 5; i++) {
-        int arr_item = stoi(arr_temp[i]);
+    int v1 = stoi(first_multiple_input[1]);
 
-        arr[i] = arr_item;
-    }
+    int x2 = stoi(first_multiple_input[2]);
 
-    miniMaxSum(arr);
+    int v2 = stoi(first_multiple_input[3]);
+
+    string result = kangaroo(x1, v1, x2, v2);
+
+    fout << result << "\n";
+
+    fout.close();
 
     return 0;
 }
