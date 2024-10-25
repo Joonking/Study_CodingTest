@@ -86,80 +86,34 @@ Stair				jumps[i]
 The minimum value of startingStair is 8 as for values less than 8, the stair number becomes < 1.
 */
 
-/*
-*  잘못 적은 코드
 #include <iostream>
 #include <vector>
 using namespace std;
 
-int findLowestStartingStair(vector<int> jumps) {
-    int lowestStair = INT_MAX;
-    int currentStair = 0;
-
-    for (int i = 0; i < jumps.size(); i++) {
-        currentStair += jumps[i];
-
-        if (currentStair < lowestStair) {
-            lowestStair = currentStair;
-        }
-    }
-
-    return abs(lowestStair) + 1;
-}
-
 int main() {
-    int n;
-    cin >> n;
-    vector<int> jumps(n);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    for (int i = 0; i < n; i++) {
+    int N;
+    cin >> N;
+
+    vector<int> jumps(N);
+
+    for (int i = 0; i < N; i++)
+    {
         cin >> jumps[i];
     }
 
-    int result = findLowestStartingStair(jumps);
-    cout << result << endl;
+    int Sum = 0;
+    int MinSum = 0;
+
+    for (int i : jumps)
+    {
+        Sum += i;
+        MinSum = min(MinSum, Sum);
+    }
+
+    cout << 1 - MinSum;
 
     return 0;
 }
-*/
-
-#include <iostream>
-#include <vector>
-using namespace std;
-
-int findLowestStartingStair(vector<int> jumps) {
-    int minStair = 1;
-    int currentStair = 1;
-    for (int jump : jumps) {
-        currentStair += jump;
-        if (currentStair < 1) {
-            minStair += 1 - currentStair;
-            currentStair = 1;
-        }
-    }
-    return minStair;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> jumps(n);
-    for (int i = 0; i < n; i++) {
-        cin >> jumps[i];
-    }
-    cout << findLowestStartingStair(jumps) << endl;
-    return 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-

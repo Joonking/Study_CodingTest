@@ -67,10 +67,7 @@ Sample Output 1
 Explannation
 The optimal solution is to assign the following pairs: (2,3), (4,5), and (7,8).
 This results in the least total bias amount, which is 3.
-
-
 */
-
 
 #include <iostream>
 #include <vector>
@@ -97,21 +94,3 @@ int main()
 	}
 	cout << sum;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
