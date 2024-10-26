@@ -30,7 +30,7 @@ int main()
 			cout << "YES" << "\n";
 			return 0;
 		}
-			
+
 	}
 
 	cout << "NO" << "\n";
