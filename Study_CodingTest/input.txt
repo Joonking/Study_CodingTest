@@ -1,4 +1,5 @@
-3
-BANANA 2
-PLUM 4
-BANANA 3
+5 4 1
+1 2
+2 3
+3 4
+4 5
