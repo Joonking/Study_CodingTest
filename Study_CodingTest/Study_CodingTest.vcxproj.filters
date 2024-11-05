@@ -4,4 +4,7 @@
     <Text Include="input.txt" />
     <Text Include="output.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BaekJoon\_전체\1967_트리의지름.cpp" />
+  </ItemGroup>
 </Project>
