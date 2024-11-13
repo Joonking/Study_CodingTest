@@ -4,4 +4,7 @@
     <Text Include="input.txt" />
     <Text Include="output.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Test.cpp" />
+  </ItemGroup>
 </Project>

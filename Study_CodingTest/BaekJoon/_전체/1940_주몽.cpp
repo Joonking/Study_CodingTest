@@ -1,47 +1,52 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
-
+#include <vector>
 using namespace std;
 
-int main() {
+int main()
+{
 	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
 
 	int N, M;
 	cin >> N >> M;
 
-	//크기 N짜리 int 형 벡터 생성 및 모두 0으로 초기화
-	vector<int> v(N, 0);
+	vector<int> Materials(N);
 
 	for (int i = 0; i < N; i++)
-		cin >> v[i];
-
-	//정렬 sort 시간복잡도 : nlogn
-	sort(v.begin(), v.end());
-
-	int count = 0;
-	int start = 0;
-	int end = N - 1;
-
-	while (start < end) // start와 end가 교차되는 순간 종료
 	{
-		if (v[start] + v[end] < M)
+		cin >> Materials[i];
+	}
+	//오름차순 정렬
+	sort(Materials.begin(), Materials.end());
+
+	//정렬하고 양 끝에서 투포인터로 좁히면서 찾는 방식
+	int StartIndex = 0;
+	int EndIndex = Materials.size() - 1;
+	int Count = 0;
+
+	while (StartIndex < EndIndex)
+	{
+		int Sum = Materials[StartIndex] + Materials[EndIndex];
+
+		if (Sum == M) //찾는 값이면
 		{
-			start++;
+			Count++;
+			StartIndex++;
+			EndIndex--;
 		}
-		else if (v[start] + v[end] > M)
+		else if (Sum < M)  //작으면 StartIndex 오른쪽으로
 		{
-			end--;
+			StartIndex++;
 		}
-		else
+		else if (Sum > M)  //크면 EndIndex 안쪽으로 좁히기
 		{
-			count++;
-			start++;
-			end--;
+			EndIndex--;
 		}
 	}
-	cout << count << "\n";
 
+	cout << Count;
+
+	return 0;
 }
