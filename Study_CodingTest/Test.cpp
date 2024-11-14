@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -9,86 +9,66 @@ int main()
 	cin.tie(nullptr);
 	cout.tie(nullptr);
 
-	//S : DNA 길이, P : 부분문자열 길이(윈도우 사이즈)
-	int S, P;
-	cin >> S >> P;
+	int N;
+	cin >> N;
 
-	string DNA;
-	cin >> DNA;
+	//인출에 걸리는 시간 배열
+	vector<int> Pi(N);
+	//합 배열
+	vector<int> S(N);
 
-	//체크할 문자 개수 A C G T 순서
-	int CheckChar[4] = { 0, };
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < N; i++)
 	{
-		cin >> CheckChar[i];
+		cin >> Pi[i];
 	}
 
-	//Start부터 End 까지가 윈도우
-	int StartIndex = 0;
-	int EndIndex = P - 1;
-	int Count = 0;
-
-	//비교할 배열
-	int ACGT[4] = { 0, };
-	//0부터 처음 윈도우 크기만큼 일단 ACGT 채우고 시작
-	for (int i = StartIndex; i <= EndIndex; i++)
+	//삽입정렬
+	for (int i = 1; i < N; i++)
 	{
-		if (DNA[i] == 'A')
-			ACGT[0]++;
-		else if (DNA[i] == 'C')
-			ACGT[1]++;
-		else if (DNA[i] == 'G')
-			ACGT[2]++;
-		else if (DNA[i] == 'T')
-			ACGT[3]++;
-	}
+		int InsertPoint = i;
+		int InsertValue = Pi[i];
 
-	//EndIndex가 DNA 문자열 크기 S 이전까지만
-	while (EndIndex < S)
-	{
-		bool IsPossible = true;
-		//비밀번호 가능여부 체크
-		for (int i = 0; i < 4; i++)
+		for (int k = i - 1; k >= 0; k--)
 		{
-			//각 문자마다 CheckChar의 개수보다 작으면 최소 조건 충족 x
-			if (ACGT[i] < CheckChar[i])
+			//삽입할 애(Pi[i])가 더 큰 상황을 찾아서
+			//그 뒤로 삽입
+			if (Pi[k] < Pi[i])
 			{
-				//불가하다 판단하고 break
-				IsPossible = false;
+				InsertPoint = k + 1;
 				break;
 			}
+			//k가 0까지 왔으면 삽입할 애는 맨 앞으로 삽입가능
+			if (k == 0)
+			{
+				InsertPoint = 0;
+			}
 		}
-		//가능한 경우만 ++
-		if (IsPossible) Count++;
 
-		//윈도우 오른쪽으로 이동하면서
-		//Start는 먼저 빼고 index 증가
-		char SubChar = DNA[StartIndex++];   //뺄 문자
-		//End는 먼저 index 증가하고 넣기
-		char AddChar = DNA[++EndIndex];   //더할 문자
-
-		//문자 빼기
-		if (SubChar == 'A')
-			ACGT[0]--;
-		else if (SubChar == 'C')
-			ACGT[1]--;
-		else if (SubChar == 'G')
-			ACGT[2]--;
-		else if (SubChar == 'T')
-			ACGT[3]--;
-
-		//문자 넣기
-		if (AddChar == 'A')
-			ACGT[0]++;
-		else if (AddChar == 'C')
-			ACGT[1]++;
-		else if (AddChar == 'G')
-			ACGT[2]++;
-		else if (AddChar == 'T')
-			ACGT[3]++;
+		//삽입할애 자리 마련하주기
+		// 삽입할 애 자리 i 부터 삽입 인덱스 전까지만
+		for (int k=i;k> InsertPoint;k--)
+		{
+			//앞에 있는걸 넣어주기
+			Pi[k] = Pi[k - 1];
+		}
+		//삽입 포인트에 삽입할 값 백업했던거 넣어주기.
+		Pi[InsertPoint] = InsertValue;
 	}
 
-	cout << Count;
+	//합배열 만들기
+	S[0] = Pi[0];
+	for (int i = 1; i < N; i++)
+	{
+		S[i] = S[i - 1] + Pi[i];
+	}
+
+	int Sum = 0;
+	for (int i : S)
+	{
+		Sum += i;
+	}
+
+	cout << Sum;
 
 	return 0;
 }
