@@ -1,54 +1,54 @@
-//067_11725 트리의 부모 찾기
-
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-static int N;
-static vector<vector<int>> tree;
-static vector<bool> visited;
-static vector<int> answer;
-void DFS(int num);
+int N;
+
+vector<vector<int>> NodeList;
+vector<bool> Visited;
+vector<int> ParentNodeList;
+
+void DFS(int Node)
+{
+	if (Visited[Node])
+		return;
+
+	Visited[Node] = true;
+
+	for (int i : NodeList[Node])
+	{
+		if (Visited[i] == false)
+		{
+			ParentNodeList[i] = Node;
+			DFS(i);
+		}
+	}
+}
 
 int main()
 {
 	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
 
 	cin >> N;
-	tree.resize(N + 1);
-	visited.resize(N + 1);
-	answer.resize(N + 1);
+	NodeList.resize(N + 1);
+	ParentNodeList.resize(N + 1);
+	Visited.resize(N + 1, false);
 
-	for(int i=1;i<N;i++)
+	for (int i = 0; i < N - 1; i++)
 	{
-		int n1, n2;
-		cin >> n1 >> n2;
-		tree[n1].push_back(n2);
-		tree[n2].push_back(n1);
+		int TempA, TempB;
+		cin >> TempA >> TempB;
+		NodeList[TempA].push_back(TempB);
+		NodeList[TempB].push_back(TempA);
 	}
 
 	DFS(1);
 
-	for(int i=2;i<=N;i++)
-	{
-		cout << answer[i] << "\n";
-	}
-}
+	for (int i = 2; i <= N; i++)
+		cout << ParentNodeList[i] << "\n";
 
-void DFS(int num)
-{
-	visited[num] = true;
-
-	for(int i : tree[num])
-	{
-		if(!visited[i])
-		{
-			answer[i] = num;
-			DFS(i);
-		}
-	}
-
+	return 0;
 }

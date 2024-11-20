@@ -1,77 +1,70 @@
-//068_1068 리프 노드의 개수 구하기
-
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
-static int N;
-static vector<vector<int>> tree;
-static vector<bool> visited;
-static int deleteNode = 0;
-static int answer = 0;
+int N;
+vector<vector<int>> Tree;
+vector<bool> Visited;
 
-void DFS(int num);
+int DeleteNode = 0;
+int LeafNodeCount = 0;
+
+void DFS(int Node)
+{
+    Visited[Node] = true;
+
+    int CNode = 0; // 유효한 자식 노드의 개수
+
+    for (int i : Tree[Node])
+    {
+        if (i != DeleteNode && !Visited[i]) // 삭제된 노드 및 이미 방문한 노드를 건너뜀
+        {
+            CNode++;
+            DFS(i);
+        }
+    }
+
+    if (CNode == 0) // 자식 노드가 없으면 리프 노드
+        LeafNodeCount++;
+}
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
-	cin >> N;
-	tree.resize(N);
-	visited.resize(N);
+    cin >> N;
+    Tree.resize(N);
+    Visited.resize(N, false);
 
-	int root = 0;
+    int Root = 0;
 
-	for(int i=0;i< N;i++)
-	{
-		int p;
-		cin >> p;
+    for (int i = 0; i < N; i++)
+    {
+        int Temp;
+        cin >> Temp;
 
-		if(p==-1)
-		{
-			root = i;
-		}
-		else
-		{
-			tree[p].push_back(i);
-			tree[i].push_back(p);
-		}
-	}
+        if (Temp == -1)
+            Root = i;
+        else
+        {
+            // Temp와 i를 양방향으로 연결
+            Tree[Temp].push_back(i);
+            Tree[i].push_back(Temp);
+        }
+    }
 
-	cin >> deleteNode;
-	if (deleteNode == root)
-		cout << 0;
-	else
-	{
-		DFS(root);
-		cout << answer<<"\n";
-	}
+    cin >> DeleteNode;
+
+    if (DeleteNode == Root)
+        cout << 0 << "\n"; // 루트 노드가 삭제되면 리프 노드는 없음
+    else
+    {
+        DFS(Root);
+        cout << LeafNodeCount << "\n";
+    }
+
+    return 0;
 }
-
-void DFS(int num)
-{
-	visited[num] = true;
-	int cNode = 0;
-
-	for(int i : tree[num])
-	{
-		if(!visited[i] && i!=deleteNode)
-		{
-			cNode++;
-			DFS(i);
-		}
-	}
-	if (cNode == 0)
-		answer++;
-
-}
-
-
-
-
-
-
-
-
