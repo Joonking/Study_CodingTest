@@ -1,19 +1,11 @@
 #include <iostream>
-#include <vector>
-
+#include <algorithm>
 using namespace std;
 
-int main()
+int main() 
 {
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr);
 	cout.tie(nullptr);
 
-	int N, M;
-
-	cin >> N >> M;
-	cout << N << M;
-
-
-	return 0;
 }
